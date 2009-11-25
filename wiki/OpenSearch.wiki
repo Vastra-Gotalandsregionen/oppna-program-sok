@@ -1,0 +1,12 @@
+#summary Information om söktjänstens OpenSearch-implementation
+
+= Introduktion =
+
+OpenSearch är en standard för att på ett enhetligt sätt tillgängliggöra sökresultat. 
+En OpenSearch-implementation ska innehålla en description-fil som beskriver API:t samt leverera sökresultat enligt standarden. Genom att läsa description-filen kan opensearch-klienter konsumera sökresultat på ett enhetligt sätt oavsett källan till resultaten.
+
+Specifikation finns att hitta på http://www.opensearch.org/
+
+= Detaljer =
+
+==API==
