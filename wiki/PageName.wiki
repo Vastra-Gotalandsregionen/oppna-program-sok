@@ -1,0 +1,27 @@
+#summary OpenSearch
+
+= Introduction =
+
+Söktjänsten har ett OpenSearch lager för att externa klienter (Webbläsare bl.a) ska kunna konsumera sökresultat på ett enhetligt sätt.
+
+Lagret är implementerat enligt http://www.opensearch.org/Home
+
+OBS! Endast en delmängd av specifikationen är implementerad ännu
+
+= Details =
+
+==API==
+Beskrivning av API:t finns i description.xml, uppsat enligt http://www.opensearch.org/Specifications/OpenSearch/1.1#OpenSearch_description_document
+
+Adress:
+Utveckling: http://vgas0313.vgregion.se/opensearch/description.xml
+Beta-drift: http://beta-hitta.vgregion.se/opensearch/description.xml (EJ Deployat än)
+
+==Format==
+Tanken med OpenSearch är att aggregera sökresultat i redan existerande format. Vanligt är HTML, RSS och ATOM.
+
+Söktjänsten stöder idag HTML och RSS 2.0
+
+OBS! Endast en delmängd av RSS 2.0 specifikationen är implementerad
+
+==Autodiscovery==
