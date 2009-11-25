@@ -16,8 +16,8 @@ API:et beskrivs i tjänstens description.xml fil. Filen följer specifikationen 
 *OBS!* I dagsläget är endast en delmängd av specifikationen implementerad
 
 *Adresser:*
-  *http://vgas0313.vgregion.se/opensearch/description.xml
-  *http://beta-hitta.vgregion.se/opensearch/description.xml
+  * http://vgas0313.vgregion.se/opensearch/description.xml
+  * http://beta-hitta.vgregion.se/opensearch/description.xml
 
 ==Format==
 Resultatet från en OpenSearch implementation kan levereras på många olika format. Url till de olika formaten hittas i description-filen. Söktjänsten stödjer HTML och RSS 2.0
