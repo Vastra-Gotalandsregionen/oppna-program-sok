@@ -25,4 +25,19 @@ OBS! Endast en delmängd av RSS 2.0 specifikationen är implementerad
 ==Autodiscovery==
 Genom att placera en länk till description-filen på en sida kan klienter (ex webbläsare) automatiskt hitta OpenSearch-sökmotorn för sidan. För webbläsare innebär det att du kan få din OpenSearch-sökmotor i sökrutan uppe till höger (Där Google/Bing brukar ligga).
 
-Söktjänsten stödjer detta 
+Länken kan inkluderas i olika format (HTML,RSS,ATOM etc). För specifikation se: http://www.opensearch.org/Specifications/OpenSearch/1.1#Autodiscovery
+
+==Webbläsarintegration==
+Via autodiscovery-länken kan webbläsaren identifiera och lägga till Söktjänsten i sökmotor-rutan.
+Söktjänsten har sin autodiscovery-länk på respektive miljö:
+* http://vgas0313.vgregion.se/opensearch/
+* http://beta-hitta.vgregion.se/opensearch/
+
+OBS! Länkarna kommer snart finnas på vanliga söksidan också
+
+Gör följande för att lägga till Söktjänsten som en sökmotor i webbläsaren:
+  # Gå in på en av adresserna ovan
+  # Klicka på pilen bredvid sökmotor-rutan uppe i högra hörnet
+  # Välj Lägg till "Hitta på VGR"
+
+Klart! Nu kan du söka på vgregionen från sökrutan.
