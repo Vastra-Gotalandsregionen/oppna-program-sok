@@ -6,11 +6,11 @@ Det är möjligt att avgränsa sin sökning till endast den avdelning man befinn
 
 API:t för denna avgränsning är genom filter-parametern.
 {{{
-http://<url_to_search_server>/?q=<query>&filter=scope:<searchscope>
+http://<url_to_search_server>/?q=<query>&filter=scope:<searchscope>&scoped=true
 }}}
 ==Adresser==
 {{{
- http://vgas0313.vgregion.se/?q=<query>&filter=scope:<searchscope>
- http://beta-hitta.vgregion.se/?q=<query>&filter=scope:<searchscope>
+ http://vgas0313.vgregion.se/?q=<query>&filter=scope:<searchscope>&scoped=true
+ http://beta-hitta.vgregion.se/?q=<query>&filter=scope:<searchscope>&scoped=true
 }}}
-Exempel på url för frågan "diabetes" från webbplatsen "Nu-sjukvården" blir: http://beta-hitta.vgregion.se/?q=diabetes&filter=scope:VGRegionnu
+Exempel på url för frågan "diabetes" från webbplatsen "Nu-sjukvården" blir: http://beta-hitta.vgregion.se/?q=diabetes&filter=scope:VGRegionnu&scoped=true
