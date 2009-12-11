@@ -31,6 +31,7 @@ Tjänsten stödjer avgränsningar beskrivet på samma sätt som LokalSokning. Ut
 Filtreringar som innehåller mellanslag måste omgärdas av citattecken.
 
 Multipla filtreringar kan göras genom att separera med dubbel-kolon (::). Exempel:
+
 http://beta-hitta.vgregion.se/opensearch/search?q=vård&filter=scope:VGRegionsas::authorfacet:"Lars+Rex"
 
 
