@@ -20,9 +20,9 @@ API:et beskrivs i tjänstens description.xml fil. Filen följer specifikationen 
   * http://beta-hitta.vgregion.se/opensearch/description.xml
 
 ==Format==
-Resultatet från en OpenSearch implementation kan levereras på många olika format. Url till de olika formaten hittas i description-filen. Söktjänsten stödjer HTML och RSS 2.0
+Resultatet från en OpenSearch implementation kan levereras på många olika format. Url till de olika formaten hittas i description-filen. Söktjänsten stödjer HTML och RSS 2.0 och Atom 1.0
 
-*OBS!* Endast en delmängd av RSS 2.0 specifikationen är implementerad
+*OBS!* Endast en delmängd av RSS 2.0 och Atom 1.0 specifikationen är implementerad
 
 ==Autodiscovery==
 Genom att placera en länk till description-filen på en sida kan klienter (ex webbläsare) automatiskt hitta OpenSearch-sökmotorn för sidan. För webbläsare innebär det att du kan få din OpenSearch-sökmotor i sökrutan uppe till höger (Där Google/Bing brukar ligga).
