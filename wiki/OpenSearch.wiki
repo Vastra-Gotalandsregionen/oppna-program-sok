@@ -24,8 +24,8 @@ Resultatet från en OpenSearch implementation kan levereras på många olika for
 
 *OBS!* Endast en delmängd av RSS 2.0 och Atom 1.0 specifikationen är implementerad
 
-Om inget format anges, levereras resultatet i Atom.
-Om ingen sortering anges sorteras på datum i fallande ordning. Man kan även sortera på relevans
+  *Om inget format anges, levereras resultatet i Atom.
+  *Om ingen sortering anges sorteras på datum i fallande ordning. Man kan även sortera på relevans
 
 ==Autodiscovery==
 Genom att placera en länk till description-filen på en sida kan klienter (ex webbläsare) automatiskt hitta OpenSearch-sökmotorn för sidan. För webbläsare innebär det att du kan få din OpenSearch-sökmotor i sökrutan uppe till höger (Där Google/Bing brukar ligga).
