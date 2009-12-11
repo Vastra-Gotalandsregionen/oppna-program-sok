@@ -1,13 +1,15 @@
 #summary Lokala sökningar
 
-Det är möjligt att avgränsa sin sökning till endast den avdelning man befinner sig på. Det gör man med parametern filter.
+Det är möjligt att avgränsa sin sökning till endast den avdelning man befinner sig på. Avgränsningen kallas för scope.
 
-Argumentet till filter är scope:<scope_namn>
+=API=
 
+API:t för denna avgränsning är genom filter-parametern.
 
-Den kompletta url:en blir: http://<url_to_search_server>/?q=<query>&filter:scope=<searchscope>;
+http://<url_to_search_server>/?q=<query>&filter=scope:<searchscope>;
 
-För nuvarande testmiljön är <url_to_search_server> http://vgas0313.vgregion.se
+==Adresser==
+ http://vgas0313.vgregion.se
 
 Exempel på url för frågan "diabetes" från webbplatsen "Nu-sjukvården" blir: http://vgas0313.vgregion.se/?q=diabetes&filter:scope=VGRegionnu
 = Details =
