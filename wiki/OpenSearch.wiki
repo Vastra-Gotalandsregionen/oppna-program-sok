@@ -19,6 +19,21 @@ API:et beskrivs i tjänstens description.xml fil. Filen följer specifikationen 
   * http://vgas0313.vgregion.se/opensearch/description.xml
   * http://beta-hitta.vgregion.se/opensearch/description.xml
 
+Tjänsten stödjer avgränsningar beskrivet på samma sätt som LokalSokning. Utöver att filtrera på scope kan man även avgränsa på följande:
+  * public
+  * scope
+  * infotype
+  * source
+  * format
+  * authorfacet
+  * keywords
+
+Filtreringar som innehåller mellanslag måste omgärdas av citattecken.
+
+Multipla filtreringar kan göras genom att separera med dubbel-kolon (::). Exempel:
+http://beta-hitta.vgregion.se/opensearch/search?q=vård&filter=scope:VGRegionsas::authorfacet:"Lars+Rex"
+
+
 ==Resultat==
 Resultatet från en OpenSearch implementation kan levereras på många olika format. Url till de olika formaten hittas i description-filen. Söktjänsten stödjer HTML och RSS 2.0 och Atom 1.0
 
