@@ -6,15 +6,10 @@ Det är möjligt att avgränsa sin sökning till endast den avdelning man befinn
 
 API:t för denna avgränsning är genom filter-parametern.
 
-http://<url_to_search_server>/?q=<query>&filter=scope:<searchscope>;
+http://<url_to_search_server>/?q=<query>&filter=scope:<searchscope>
 
 ==Adresser==
- http://vgas0313.vgregion.se
+ http://vgas0313.vgregion.se/?q=<query>&filter=scope:<searchscope>
+ http://beta-hitta.vgregion.se/?q=<query>&filter=scope:<searchscope>
 
-Exempel på url för frågan "diabetes" från webbplatsen "Nu-sjukvården" blir: http://vgas0313.vgregion.se/?q=diabetes&filter:scope=VGRegionnu
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Exempel på url för frågan "diabetes" från webbplatsen "Nu-sjukvården" blir: http://beta-hitta.vgregion.se/?q=diabetes&filter=scope:VGRegionnu
