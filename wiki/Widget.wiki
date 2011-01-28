@@ -99,13 +99,15 @@ Om komponenterna ovan (war filen och JavaScript filer) är tillgängliga, så sk
 
 Den sista script taggarna refererar till scriptfiler i querycompletion war filen. Den fetsilade delen är namnet på själva war filen. Om war filen finns i en annan applikation server eller på ngn annan URL så ska hela urlen skrivas in. Ett querycompletion modul finns på http://hitta.vgregion.se/fwqc 
 Scriptet nedan ska då läggas till antingen direkt på sidan eller i någon javaScript fil:
+
 {{{
 <script type="text/javascript">
              $(document).ready(function(){
                  $("#search_bar").fwcomplete();
              });
 	</script>
-{{{
+}}}
+
 Texten med fetstil är namnet på sökrutan (input taggen i html koden).
 
 ==Scope Filtrering==
