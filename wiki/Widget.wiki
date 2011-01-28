@@ -1,4 +1,3 @@
-
 ==Introduktion==
 
 Det här dokumentet beskriver hur man lägger sökwidget på olika websidor. Sökwidgeten kommer att lägga en sökruta och en sök knapp på sidan. Söket kommer vara kopplat till hitta.vgregion.se. Dokumentet beskriver även hur man aktiverar olika funktioner som querycompletion och scope filtrering.
@@ -91,19 +90,22 @@ men också stylesheet:
 Om komponenterna ovan (war filen och JavaScript filer) är tillgängliga, så ska följande kod läggas i sidans header tag (sidan som har sökwidgeten i sig):
 
 {{{
+
 <script type="text/javascript" src="scripts/jquery-ui-1.8rc1.custom.min.js"></script>  
 <script type="text/javascript" src="scripts/jquery-1.4.1.min.js"></script>
 <script type="text/javascript" src="fwqc/scripts/fwcomplete.js"></script>
+
 }}}
 
 Den sista script taggarna refererar till scriptfiler i querycompletion war filen. Den fetsilade delen är namnet på själva war filen. Om war filen finns i en annan applikation server eller på ngn annan URL så ska hela urlen skrivas in. Ett querycompletion modul finns på http://hitta.vgregion.se/fwqc 
 Scriptet nedan ska då läggas till antingen direkt på sidan eller i någon javaScript fil:
-
+{{{
 <script type="text/javascript">
              $(document).ready(function(){
                  $("#search_bar").fwcomplete();
              });
 	</script>
+{{{
 Texten med fetstil är namnet på sökrutan (input taggen i html koden).
 
 ==Scope Filtrering==
