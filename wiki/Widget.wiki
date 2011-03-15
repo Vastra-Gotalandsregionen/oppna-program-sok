@@ -97,7 +97,7 @@ Om komponenterna ovan (war filen och JavaScript filer) är tillgängliga, så sk
 
 }}}
 
-Den sista script taggarna refererar till scriptfiler i querycompletion war filen. Den fetsilade delen är namnet på själva war filen. Om war filen finns i en annan applikation server eller på ngn annan URL så ska hela urlen skrivas in. Ett querycompletion modul finns på http://hitta.vgregion.se/fwqc 
+Den sista script taggarna refererar till scriptfiler i querycompletion war filen. *fwqc* är namnet på själva war filen. Om war filen finns i en annan applikation server eller på ngn annan URL så ska hela urlen skrivas in. Sökmotorns querycompletion modul finns på http://hitta.vgregion.se/fwqc 
 Scriptet nedan ska då läggas till antingen direkt på sidan eller i någon javaScript fil:
 
 {{{
@@ -108,7 +108,7 @@ Scriptet nedan ska då läggas till antingen direkt på sidan eller i någon jav
 	</script>
 }}}
 
-Texten med fetstil är namnet på sökrutan (input taggen i html koden).
+*search_bar* är namnet på sökrutan (input taggen i html koden).
 
 ==Scope Filtrering==
 Om söket behöver filtreras så ska denna kod läggas till istället:
@@ -133,7 +133,7 @@ Om söket behöver filtreras så ska denna kod läggas till istället:
         </div>
 }}}
 
-Den fetstilade texten är namnet på önskad filtreringsparameter.
+Input-taggen med name=*"filter"* används för att filtrera på organisation. Värdet anges i value-attributet. Det börjar alltid med *scope:*
 På länken nedan kan man se vilka scope som finns tillgängliga. Om det är första gången man besöker sidan så ska man trycka på länken två gånger.
 http://apelon.vgregion.se/dtstreebrowser/detail_configure.do?detail_action_type=get_detail&getDetailId=98&namespaceId=32768
 
@@ -177,13 +177,13 @@ Det som är viktig är det som finns på value (value=”PDF”). Det är värde
 Vilken typ av facetter som finns kan delas i tre kategorier:
 
   *Generella facetter (alltid tillgängliga)
-     *ofacet_infotype
+     *1facet_infotype
+  *Interna facetter
+     *1facet_infotype
   *Scope specifika facetter för hitta rätt i vården
-     *ofacet_verksamhet
-  *ofacet_kommun
-  Interna facetter
-ofacet_infotype
-•Scope specifika facetter för vård i västra götaland
-ofacet_healthcarecat
+     *facet6_verksamhet
+     *facet7_kommun
+  *Scope specifika facetter för vård i västra götaland
+     *2facet_healthcarecat
 
-Om man ska ha utökade filtrering ska man stämma av med sökgruppen för att verifiera att de fälten finns i Solr och kan faceteras på.
+Om man vill ha ytterligare utökad filtrering ska man stämma av med sökgruppen för att verifiera att de fälten finns i Solr och kan faceteras på.
