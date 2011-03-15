@@ -176,14 +176,14 @@ Det som är viktig är det som finns på value (value=”PDF”). Det är värde
 
 Vilken typ av facetter som finns kan delas i tre kategorier:
 
-  *Generella facetter (alltid tillgängliga)
-     *1facet_infotype
-  *Interna facetter
-     *1facet_infotype
-  *Scope specifika facetter för hitta rätt i vården
-     *facet6_verksamhet
-     *facet7_kommun
-  *Scope specifika facetter för vård i västra götaland
-     *2facet_healthcarecat
+  * Generella facetter (alltid tillgängliga)
+     * 1facet_infotype
+  * Interna facetter
+     * 1facet_infotype
+  * Scope specifika facetter för hitta rätt i vården
+     * facet6_verksamhet
+     * facet7_kommun
+  * Scope specifika facetter för vård i västra götaland
+     * 2facet_healthcarecat
 
 Om man vill ha ytterligare utökad filtrering ska man stämma av med sökgruppen för att verifiera att de fälten finns i Solr och kan faceteras på.
