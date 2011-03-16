@@ -103,7 +103,15 @@ Scriptet nedan ska då läggas till antingen direkt på sidan eller i någon jav
 {{{
 <script type="text/javascript">
              $(document).ready(function(){
-                 $("#search_bar").fwcomplete();
+                 $("#search_bar").autocomplete({
+                    source: function(request,response) {
+                        $.getJSON("http://hitta.vgregion.se/fwqc/complete.do?format=opensearch&q="+encodeURIComponent(request.term)+"&callback=?",
+                        function(data) {
+                            response(data[1]);
+                        });
+                    }
+                });
+);
              });
 	</script>
 }}}
