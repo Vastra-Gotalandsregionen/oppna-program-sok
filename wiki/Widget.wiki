@@ -91,7 +91,7 @@ Om komponenterna ovan (war filen och JavaScript filer) är tillgängliga, så sk
 
 {{{
 
-<script type="text/javascript" src="scripts/jquery-ui-1.8rc1.custom.min.js"></script>  
+<script type="text/javascript" src="scripts/jquery-ui-1.8.6.custom.min.js"></script>  
 <script type="text/javascript" src="scripts/jquery-1.4.1.min.js"></script>
 <script type="text/javascript" src="fwqc/scripts/fwcomplete.js"></script>
 
