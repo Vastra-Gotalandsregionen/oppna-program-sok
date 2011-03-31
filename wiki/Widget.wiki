@@ -160,12 +160,12 @@ Querycompletion används för att ge användaren förslag på sökord medans den
 
 Java script filer:
 
-  *jquery-ui-1.8rc1.custom.min.js
+  *jquery-ui-1.8.6.custom.min.js
   *jquery-1.4.1.min.js
 
 men också stylesheet:
 
-  *jquery-ui-1.8rc1.custom.css
+  *jquery-ui-1.8.6.custom.min.css
 
 Om komponenterna ovan (war filen och JavaScript filer) är tillgängliga, så ska följande kod läggas i sidans header tag (sidan som har sökwidgeten i sig):
 
