@@ -76,47 +76,6 @@ CSS klasser för hur widgeten ska se ut, måste skapas eller redigeras för att 
 }
 }}}
 
-Querycompletion kräver flera komponenter för att fungera. Dessa måste vara tillgängliga. För det första måste en query completion modul vilket är en war fil ligga i en applikation server (till exempel tomcat). Den brukar heta fwqc.war. Andra komponenter som krävs och måste vara tillgängliga är följande:
-
-Java script filer:
-
-  *jquery-ui-1.8rc1.custom.min.js
-  *jquery-1.4.1.min.js
-
-men också stylesheet:
-
-  *jquery-ui-1.8rc1.custom.css
-
-Om komponenterna ovan (war filen och JavaScript filer) är tillgängliga, så ska följande kod läggas i sidans header tag (sidan som har sökwidgeten i sig):
-
-{{{
-
-<script type="text/javascript" src="scripts/jquery-ui-1.8.6.custom.min.js"></script>  
-<script type="text/javascript" src="scripts/jquery-1.4.1.min.js"></script>
-
-}}}
-
-Den sista script taggarna refererar till scriptfiler i querycompletion war filen. *fwqc* är namnet på själva war filen. Om war filen finns i en annan applikation server eller på ngn annan URL så ska hela urlen skrivas in. Sökmotorns querycompletion modul finns på http://hitta.vgregion.se/fwqc 
-Scriptet nedan ska då läggas till antingen direkt på sidan eller i någon javaScript fil:
-
-{{{
-<script type="text/javascript">
-             $(document).ready(function(){
-                 $("#search_bar").autocomplete({
-                    source: function(request,response) {
-                        $.getJSON("http://hitta.vgregion.se/fwqc/complete.do?format=opensearch&q="+encodeURIComponent(request.term)+"&callback=?",
-                        function(data) {
-                            response(data[1]);
-                        });
-                    }
-                });
-);
-             });
-	</script>
-}}}
-
-*search_bar* är namnet på sökrutan (input taggen i html koden).
-
 ==Scope Filtrering==
 Om söket behöver filtreras så ska denna kod läggas till istället:
 
@@ -194,3 +153,51 @@ Vilken typ av facetter som finns kan delas i tre kategorier:
      * 2facet_healthcarecat
 
 Om man vill ha ytterligare utökad filtrering ska man stämma av med sökgruppen för att verifiera att de fälten finns i Solr och kan faceteras på.
+
+=== Query completion ===
+
+Querycompletion används för att ge användaren förslag på sökord medans den skriver sökfrågan. Det kräver flera komponenter för att fungera. Dessa måste vara tillgängliga. För det första måste en query completion modul vilket är en war fil ligga i en applikation server (till exempel tomcat). Den brukar heta fwqc.war. Andra komponenter som krävs och måste vara tillgängliga är följande:
+
+Java script filer:
+
+  *jquery-ui-1.8rc1.custom.min.js
+  *jquery-1.4.1.min.js
+
+men också stylesheet:
+
+  *jquery-ui-1.8rc1.custom.css
+
+Om komponenterna ovan (war filen och JavaScript filer) är tillgängliga, så ska följande kod läggas i sidans header tag (sidan som har sökwidgeten i sig):
+
+{{{
+
+<script type="text/javascript" src="scripts/jquery-ui-1.8.6.custom.min.js"></script>  
+<script type="text/javascript" src="scripts/jquery-1.4.1.min.js"></script>
+
+}}}
+
+Den sista script taggarna refererar till scriptfiler i querycompletion war filen. *fwqc* är namnet på själva war filen. Om war filen finns i en annan applikation server eller på ngn annan URL så ska hela urlen skrivas in. Sökmotorns querycompletion modul finns på http://hitta.vgregion.se/fwqc 
+Scriptet nedan ska då läggas till antingen direkt på sidan eller i någon javaScript fil:
+
+{{{
+<script type="text/javascript">
+             $(document).ready(function(){
+                 $("#search_bar").autocomplete({
+                    source: function(request,response) {
+                        $.getJSON("http://hitta.vgregion.se/fwqc/complete.do?format=opensearch&q="+encodeURIComponent(request.term)+"&callback=?",
+                        function(data) {
+                            response(data[1]);
+                        });
+                    }
+                });
+);
+             });
+	</script>
+}}}
+
+*search_bar* är namnet på sökrutan (input taggen i html koden).
+
+För att query completion endast ska ge förslag på den aktuella sajten krävs att adressen kompletteras med ett filter. Följande ska då läggas till adressen i anropet: {{{&filter=scope:VGRegionvardportalenhittavard}}}, där värdet efter scope: är scopet för den aktuella sidan. Den kompletta adressen blir då http://hitta.vgregion.se/fwqc/complete.do?format=opensearch&filter=scope:VGRegionvardportalenhittavard&q="+encodeURIComponent(request.term)+"&callback=?
+
+På länken nedan kan man se vilka scope som finns tillgängliga. Om det är första gången man besöker sidan så ska man trycka på länken två gånger.
+http://apelon.vgregion.se/dtstreebrowser/detail_configure.do?detail_action_type=get_detail&getDetailId=98&namespaceId=32768
