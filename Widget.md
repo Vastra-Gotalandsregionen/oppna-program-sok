@@ -1,0 +1,203 @@
+## Introduktion ##
+
+Det här dokumentet beskriver hur man lägger sökwidget på olika websidor. Sökwidgeten kommer att lägga en sökruta och en sök knapp på sidan. Söket kommer vara kopplat till hitta.vgregion.se. Dokumentet beskriver även hur man aktiverar olika funktioner som querycompletion och scope filtrering.
+
+
+## Sök Widget ##
+
+Standard har widgeten en sökruta och en sök knapp. Följande html kod kan läggas på en sida och sökwidgeten aktiveras.
+```
+       <div id="search-column">
+            <div id="header-input-field-container">
+                <div class="boxinside">
+                    <div id="forms-container">
+                        <form  id="sf" action="http://hitta.vgregion.se/search.xhtml" method="get">
+                            <h2>Sök i källa</h2>
+
+                            <input id="search_bar" class="searchField searchWidth " type="text" name="q" value="" style="float: left;"/>
+                            <div class="clear">                             
+<input type="submit" value="Hitta" class="standardButton" id="submitButton"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+```
+
+CSS klasser för hur widgeten ska se ut, måste skapas eller redigeras för att passa websidan. Som exempel kan man lägga följande CSS för att se hur det kan se ut.
+
+```
+.boxinside {
+    border: 0.2em solid #FFFFFF;
+    overflow: visible;
+    width: 24.4em;
+}
+
+.standardButton {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 3px double #999999;
+    color: #333333;
+    margin-top: 0.3em;
+    padding: 0 3px;
+     cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+#header-input-field-container {
+    background: none repeat scroll 0 0 #F3F1F2;
+    border: 0.1em solid #91ADB4;
+    float: left;
+    margin: 0;
+    width: 24.8em;
+}
+
+#forms-container {
+    background-color: #F3F1F2;
+    font-weight: bold;
+    margin: -0.5em 0.7em 0.4em 1.2em;
+}
+.searchWidth{
+    width: 190px;
+}
+.vardval{
+
+    width: 100px;
+    height: 30px;
+    float: right;
+    background-image: url('../images/vardval.png');
+
+}
+.dropDown{
+    width: 195px;
+    clear: right;
+    margin-top: 10px;
+}
+```
+
+## Scope Filtrering ##
+Om söket behöver filtreras så ska denna kod läggas till istället:
+
+```
+        <div id="search-column">
+            <div id="header-input-field-container">
+                <div class="boxinside">
+                    <div id="forms-container">
+                        <form  id="sf" action="http://hitta.vgregion.se/search.xhtml" method="get">
+                            <h2>Sök i källa</h2>
+	             <input type=”hidden” name=”filter” value=”scope:VGRegionvardportalenhittavard” />
+	             <input type=”hidden” name=”scoped” value=”true” />
+<input id="search_bar" class="searchField searchWidth " type="text" name="q" value="" style="float: left;"/>
+                            <div class="clear">                             
+<input type="submit" value="Hitta" class="standardButton" id="submitButton"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+```
+
+Input-taggen med name=**"filter"** används för att filtrera på organisation. Värdet anges i value-attributet. Det börjar alltid med **scope:**
+På länken nedan kan man se vilka scope som finns tillgängliga. Om det är första gången man besöker sidan så ska man trycka på länken två gånger.
+http://apelon.vgregion.se/dtstreebrowser/detail_configure.do?detail_action_type=get_detail&getDetailId=98&namespaceId=32768
+
+## Utökad filtrering ##
+
+Nedan finns kod för hur man kan filtrera med fler parametrar än bara scope. Koden nedan är för en dropbox med exempelvärde. Dropboxen kan sen antingen fyllas i manuellt eller kopplas mot en källa. Koden måste ligga inom formtaggen i widgeten.
+
+```
+<select id="filterDropdown" class="dropDown" name ="1facet_infotype" >
+<option value=""></option>
+<option value="Nyhet">Nyheter</option>
+<option value="Dokument">Dokument</option>
+<option value="Vårdinformation">Vårdinformation</option>
+</select>
+```
+Till exempel kan den vara after sökruta enligt nedan:
+```
+                       <form  id="sf" action="http://hitta.vgregion.se/search.xhtml" method="get">
+                            <h2>Sök i källa</h2>
+                            <input id="search_bar" class="searchField searchWidth " type="text" name="q" value="" style="float: left;"/>
+                            <div class="clear">                             
+                                <p>
+                                    <select id="filterDropdown" class="dropDown" name ="1facet_infotype" >
+                                        <option value=""></option>
+                                        <option value="Nyhet">Nyheter</option>
+                                        <option value="Dokument">Dokument</option>
+                                        <option value="Vårdinformation">Vårdinformation</option>
+                                    </select>
+                                </p>
+                                <input type="submit" value="Hitta" class="standardButton" id="submitButton"/>
+                            </div>
+                        </form>
+```
+
+Den fetstilade texten (facetNAme) ska fyllas i med rätt facettyp. Till exempel om man ska facetera på format så ska facetName ändras till ”facet5\_format” och värden i dropboxen ska fylla med de olika format som finns enligt nedan:
+
+`<option value="PDF">PDF dokument</option>`
+
+Det som är viktig är det som finns på value (value=”PDF”). Det är värdet man faceterar på och det värdet måste vara rätt. Det andra värdet (PDF dokument) är display namn och kan vara vad som helst.
+
+Vilken typ av facetter som finns kan delas i tre kategorier:
+
+  * Generella facetter (alltid tillgängliga)
+    * 1facet\_infotype
+  * Interna facetter
+    * 1facet\_infotype
+  * Scope specifika facetter för hitta rätt i vården
+    * facet6\_verksamhet
+    * facet7\_kommun
+  * Scope specifika facetter för vård i västra götaland
+    * 2facet\_healthcarecat
+
+Om man vill ha ytterligare utökad filtrering ska man stämma av med sökgruppen för att verifiera att de fälten finns i Solr och kan faceteras på.
+
+### Query completion ###
+
+Querycompletion används för att ge användaren förslag på sökord medans den skriver sökfrågan. Det kräver flera komponenter för att fungera. Dessa måste vara tillgängliga. För det första måste en query completion modul vilket är en war fil ligga i en applikation server (till exempel tomcat). Den brukar heta fwqc.war. Andra komponenter som krävs och måste vara tillgängliga är följande:
+
+Java script filer:
+
+  * query-ui-1.8.6.custom.min.js
+  * query-1.4.1.min.js
+
+men också stylesheet:
+
+  * query-ui-1.8.6.custom.min.css
+
+Om komponenterna ovan (war filen och JavaScript filer) är tillgängliga, så ska följande kod läggas i sidans header tag (sidan som har sökwidgeten i sig):
+
+```
+
+<script type="text/javascript" src="scripts/jquery-ui-1.8.6.custom.min.js"></script>  
+<script type="text/javascript" src="scripts/jquery-1.4.1.min.js"></script>
+
+```
+
+Den sista script taggarna refererar till scriptfiler i querycompletion war filen. **fwqc** är namnet på själva war filen. Om war filen finns i en annan applikation server eller på ngn annan URL så ska hela urlen skrivas in. Sökmotorns querycompletion modul finns på http://hitta.vgregion.se/fwqc
+Scriptet nedan ska då läggas till antingen direkt på sidan eller i någon javaScript fil:
+
+```
+<script type="text/javascript">
+             $(document).ready(function(){
+                 $("#search_bar").autocomplete({
+                    source: function(request,response) {
+                        $.getJSON("http://hitta.vgregion.se/fwqc/complete.do?format=opensearch&q="+encodeURIComponent(request.term)+"&callback=?",
+                        function(data) {
+                            response(data[1]);
+                        });
+                    }
+                });
+);
+             });
+	</script>
+```
+
+**search\_bar** är namnet på sökrutan (input taggen i html koden).
+
+För att query completion endast ska ge förslag på den aktuella sajten krävs att adressen kompletteras med ett filter. Följande ska då läggas till adressen i anropet: `&filter=scope:VGRegionvardportalenhittavard`, där värdet efter scope: är scopet för den aktuella sidan. Den kompletta adressen blir då http://hitta.vgregion.se/fwqc/complete.do?format=opensearch&filter=scope:VGRegionvardportalenhittavard&q="+encodeURIComponent(request.term)+"&callback=?
+
+På länken nedan kan man se vilka scope som finns tillgängliga. Om det är första gången man besöker sidan så ska man trycka på länken två gånger.
+http://apelon.vgregion.se/dtstreebrowser/detail_configure.do?detail_action_type=get_detail&getDetailId=98&namespaceId=32768

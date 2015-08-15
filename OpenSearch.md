@@ -1,0 +1,61 @@
+# Introduktion #
+
+OpenSearch är en standard för att på ett enhetligt sätt tillgängliggöra sökresultat.
+En OpenSearch-implementation ska innehålla en description-fil som beskriver API:t samt leverera sökresultat enligt standarden. Genom att läsa description-filen kan opensearch-klienter konsumera sökresultat på ett enhetligt sätt oavsett källan till resultaten.
+
+Specifikation finns att hitta på http://www.opensearch.org/
+
+# Detaljer #
+
+## API ##
+
+API:et beskrivs i tjänstens description.xml fil. Filen följer specifikationen på http://www.opensearch.org/Specifications/OpenSearch/1.1#OpenSearch_description_document
+
+**OBS!** I dagsläget är endast en delmängd av specifikationen implementerad
+
+**Adresser:**
+  * http://vgas0313.vgregion.se/opensearch/description.xml
+  * http://beta-hitta.vgregion.se/opensearch/description.xml
+
+Tjänsten stödjer avgränsningar beskrivet på samma sätt som LokalSokning. Utöver att filtrera på scope kan man även avgränsa på följande:
+  * public
+  * scope
+  * infotype
+  * source
+  * format
+  * authorfacet
+  * keywords
+
+Filtreringar som innehåller mellanslag måste omgärdas av citattecken.
+
+Multipla filtreringar kan göras genom att separera med dubbel-kolon (::). Exempel:
+
+http://beta-hitta.vgregion.se/opensearch/search?q=vård&filter=scope:VGRegionsas::authorfacet:"Lars+Rex"
+
+
+## Resultat ##
+Resultatet från en OpenSearch implementation kan levereras på många olika format. Url till de olika formaten hittas i description-filen. Söktjänsten stödjer HTML och RSS 2.0 och Atom 1.0
+
+**OBS!** Endast en delmängd av RSS 2.0 och Atom 1.0 specifikationen är implementerad
+
+  * Om inget format anges, levereras resultatet i Atom.
+  * Om ingen sortering anges sorteras på datum i fallande ordning. Man kan även sortera på relevans
+
+## Autodiscovery ##
+Genom att placera en länk till description-filen på en sida kan klienter (ex webbläsare) automatiskt hitta OpenSearch-sökmotorn för sidan. För webbläsare innebär det att du kan få din OpenSearch-sökmotor i sökrutan uppe till höger (Där Google/Bing brukar ligga).
+
+Länken kan inkluderas i olika format (HTML,RSS,ATOM etc). För specifikation se: http://www.opensearch.org/Specifications/OpenSearch/1.1#Autodiscovery
+
+## Webbläsarintegration ##
+Via autodiscovery-länken kan webbläsaren identifiera och lägga till Söktjänsten i sökmotor-rutan.
+Söktjänsten har sin autodiscovery-länk på respektive miljö:
+**http://vgas0313.vgregion.se/opensearch/** http://beta-hitta.vgregion.se/opensearch/
+
+**OBS!** Länkarna kommer snart finnas på vanliga söksidan också
+
+Gör följande för att lägga till Söktjänsten som en sökmotor i webbläsaren:
+  1. Gå in på en av adresserna ovan
+  1. Klicka på pilen bredvid sökmotor-rutan uppe i högra hörnet
+  1. Välj Lägg till "Hitta på VGR"
+
+Klart! Nu kan du söka på vgregionen från sökrutan.
